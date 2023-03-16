@@ -5,6 +5,9 @@ const config = {
   mode: "jit",
   theme: {
     extend: {},
+    fontFamily: {
+      consolas: ["Consolas", "monospace"],
+    }
   },
 
   plugins: [forms],
