@@ -1,5 +1,6 @@
 <script>
     import { createEventDispatcher } from "svelte";
+    
 
     const dispatch = createEventDispatcher();
 
@@ -30,7 +31,7 @@
         >
             <img
                 class="block dark:hidden"
-                src="/no_bg_1.svg"
+                src="logo/no_bg_1.svg"
                 alt="owasp logo"
                 width="400"
             />
@@ -38,7 +39,7 @@
             <img 
             
                 class="hidden dark:block"
-                src="/no_bg_2.svg"
+                src="logo/no_bg_2.svg"
                 alt="owasp logo"
                 width="400"
 
