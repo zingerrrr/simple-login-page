@@ -1,30 +1,40 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    
+    import IncorrectAlert from "./IncorrectAlert.svelte";
 
     const dispatch = createEventDispatcher();
 
     let username = "";
     let password = "";
-
+    let show_alert = false;
 
     function onLogin() {
-        if (username == import.meta.env.VITE_USERNAME && password == import.meta.env.VITE_PASSWORD) {
+        if (
+            username == import.meta.env.VITE_USERNAME &&
+            password == import.meta.env.VITE_PASSWORD
+        ) {
             dispatch("correctCredentials");
-        }
-        else{
+        } else {
             dispatch("wrongCredentials");
+            show_alert = true;
         }
+
+        username = "";
+        password = "";
+    }
+
+    function closeAlert() {
+        show_alert = false;
     }
 </script>
-
-
-
 
 <div class="bg-gray-50 dark:bg-gray-900 font-consolas">
     <div
         class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen  lg:py-0"
     >
+        {#if show_alert}
+            <IncorrectAlert on:click={closeAlert} />
+        {/if}
         <a
             href="https://www.instagram.com/owaspiiitd"
             class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
@@ -36,15 +46,12 @@
                 width="400"
             />
 
-            <img 
-            
+            <img
                 class="hidden dark:block"
                 src="./logo/no_bg_2.svg"
                 alt="owasp logo"
                 width="400"
-
             />
-            
         </a>
         <div
             class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0 dark:bg-gray-800 dark:border-gray-700"
@@ -89,13 +96,11 @@
                         />
                     </div>
                     <div class="pt-5">
-                    <button
-                        type="button"
-                        class="block w-full h-[50px]  text-teal-700 hover:text-white border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-teal-500 dark:text-teal-500 dark:hover:text-white dark:hover:bg-teal-500 dark:focus:ring-teal-800"
-                        on:click={onLogin}
-                        >Login</button
-                        
-                    >
+                        <button
+                            type="button"
+                            class="block w-full h-[50px]  text-teal-700 hover:text-white border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-teal-500 dark:text-teal-500 dark:hover:text-white dark:hover:bg-teal-500 dark:focus:ring-teal-800"
+                            on:click={onLogin}>Login</button
+                        >
                     </div>
                 </form>
             </div>
