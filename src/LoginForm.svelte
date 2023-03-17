@@ -31,7 +31,7 @@
         >
             <img
                 class="block dark:hidden"
-                src="logo/no_bg_1.svg"
+                src="./logo/no_bg_1.svg"
                 alt="owasp logo"
                 width="400"
             />
@@ -39,7 +39,7 @@
             <img 
             
                 class="hidden dark:block"
-                src="logo/no_bg_2.svg"
+                src="./logo/no_bg_2.svg"
                 alt="owasp logo"
                 width="400"
 
