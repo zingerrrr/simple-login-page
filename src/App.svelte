@@ -1,7 +1,7 @@
 <script lang="ts">
     import LoginForm from "./LoginForm.svelte";
 
-    let correctCredentials = true;
+    let correctCredentials = false;
 
 </script>
 
